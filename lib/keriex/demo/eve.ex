@@ -13,6 +13,9 @@ defmodule Keriex.Demo.Eve do
 
   def handle_info({:tcp, socket, packet}, state) do
     IO.inspect packet, label: "incoming packet"
+
+    # parser
+
     :gen_tcp.send socket, "right back at you \n"
     {:noreply, state}
   end

@@ -23,7 +23,6 @@ defmodule Core.MixProject do
     [
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
       {:blake3, "~> 0.4.1"},
-      {:enacl, "~> 1.1"},
       {:fast64, "~> 0.1.3"},
       {:redix, ">= 0.0.0"},
       {:castore, ">= 0.0.0"}

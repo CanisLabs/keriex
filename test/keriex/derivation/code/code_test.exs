@@ -1,375 +1,338 @@
 defmodule DerivationCodeTest do
-  import Keriex.Derivation.Code
-
   use ExUnit.Case
+  alias Keriex.Derivation.Code
+  alias Keriex.Derivation.Codes
 
-  # test "Ed25519Seed" do
+  test "Ed25519Seed" do
+    c = Codes.ed25519_seed().string
+    assert c == "A"
 
-  #   c = ed25519_seed().string
-  #   assert c == "A"
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "Ed25519Seed"
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Ed25519Seed"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 32
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 32
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 44
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 44
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 33
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 33
-  # end
+  test "Ed25519NT" do
+    c = Codes.ed25519_nt().string
+    assert c == "B"
 
-  # test "Ed25519NT" do
-  #   c = ed25519_nt().string
-  #   assert c == "B"
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "Ed25519NT"
 
-  #   by_string_code(c)
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 32
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Ed25519NT"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 44
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 32
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 33
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 44
+    %{basic: b} = Codes.by_string_code(c)
+    assert b
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 33
+  test "X25519" do
+    c = Codes.x25519().string
+    assert c == "C"
 
-  #   %{basic: b} = by_string_code(c)
-  #   assert b
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "X25519"
 
-  # test "X25519" do
-  #   c = x25519().string
-  #   assert c == "C"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 32
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "X25519"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 44
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 32
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 33
+  end
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 44
+  test "Blake3256" do
+    c = Codes.blake3256().string
+    assert c == "E"
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 33
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "Blake3256"
 
-  # test "Ed25519" do
-  #   c = ed25519().string
-  #   assert c == "D"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 32
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Ed25519"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 44
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 32
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 33
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 44
+    %{self_addressing: sa} = Codes.by_string_code(c)
+    assert sa
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 33
+  test "Blake2b256" do
+    c = Codes.blake2b256().string
+    assert c == "F"
 
-  #   %{basic: b} = by_string_code(c)
-  #   assert b
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "Blake2b256"
 
-  # test "Blake3256" do
-  #   c = blake3256().string
-  #   assert c == "E"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 32
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Blake3256"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 44
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 32
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 33
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 44
+    %{self_addressing: sa} = Codes.by_string_code(c)
+    assert sa
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 33
+  test "Blake2s256" do
+    c = Codes.blake2s256().string
+    assert c == "G"
 
-  #   %{self_addressing: sa} = by_string_code(c)
-  #   assert sa
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "Blake2s256"
 
-  # test "Blake2b256" do
-  #   c = blake2b256().string
-  #   assert c == "F"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 32
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Blake2b256"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 44
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 32
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 33
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 44
+    %{self_addressing: sa} = Codes.by_string_code(c)
+    assert sa
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 33
+  test "SHA3256" do
+    c = Codes.sha3256().string
+    assert c == "H"
 
-  #   %{self_addressing: sa} = by_string_code(c)
-  #   assert sa
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "SHA3256"
 
-  # test "Blake2s256" do
-  #   c = blake2s256().string
-  #   assert c == "G"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 32
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Blake2s256"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 44
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 32
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 33
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 44
+    %{self_addressing: sa} = Codes.by_string_code(c)
+    assert sa
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 33
+  test "SHA2256" do
+    c = Codes.sha2256().string
+    assert c == "I"
 
-  #   %{self_addressing: sa} = by_string_code(c)
-  #   assert sa
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "SHA2256"
 
-  # test "SHA3256" do
-  #   c = sha3256().string
-  #   assert c == "H"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 32
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "SHA3256"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 44
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 32
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 33
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 44
+    %{self_addressing: sa} = Codes.by_string_code(c)
+    assert sa
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 33
+  test "RandomSeed128" do
+    c = Codes.random_seed128().string
+    assert c == "0A"
 
-  #   %{self_addressing: sa} = by_string_code(c)
-  #   assert sa
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "RandomSeed128"
 
-  # test "SHA2256" do
-  #   c = sha2256().string
-  #   assert c == "I"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 16
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "SHA2256"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 24
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 32
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 18
+  end
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 44
+  test "Ed25519Sig" do
+    c = Codes.ed25519_sig().string
+    assert c == "0B"
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 33
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "Ed25519Sig"
 
-  #   %{self_addressing: sa} = by_string_code(c)
-  #   assert sa
-  # end
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 64
 
-  # test "RandomSeed128" do
-  #   c = random_seed128().string
-  #   assert c == "0A"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 88
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "RandomSeed128"
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 64
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 16
+    %{self_signing: ss} = Codes.by_string_code(c)
+    assert ss
+  end
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 24
+  test "EcDSASig" do
+    c = Codes.ecdsa_sig().string
+    assert c == "0C"
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 18
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "EcDSASig"
 
-  # test "Ed25519Sig" do
-  #   c = ed25519_sig().string
-  #   assert c == "0B"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 64
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Ed25519Sig"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 88
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 64
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 64
+  end
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 88
+  test "Blake3512" do
+    c = Codes.blake3512().string
+    assert c == "0D"
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 64
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "Blake3512"
 
-  #   %{self_signing: ss} = by_string_code(c)
-  #   assert ss
-  # end
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 64
 
-  # test "EcDSASig" do
-  #   c = ecdsa_sig().string
-  #   assert c == "0C"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 88
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "EcDSASig"
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 64
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 64
+    %{self_addressing: sa} = Codes.by_string_code(c)
+    assert sa
+  end
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 88
+  test "SHA3512" do
+    c = Codes.sha3512().string
+    assert c == "0E"
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 64
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "SHA3512"
 
-  # test "Blake3512" do
-  #   c = blake3512().string
-  #   assert c == "0D"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 64
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Blake3512"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 88
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 64
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 64
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 88
+    %{self_addressing: sa} = Codes.by_string_code(c)
+    assert sa
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 64
+  test "Blake2b512" do
+    c = Codes.blake2b512().string
+    assert c == "0F"
 
-  #   %{self_addressing: sa} = by_string_code(c)
-  #   assert sa
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "Blake2b512"
 
-  # test "SHA3512" do
-  #   c = sha3512().string
-  #   assert c == "0E"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 64
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "SHA3512"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 88
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 64
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 64
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 88
+    %{self_addressing: sa} = Codes.by_string_code(c)
+    assert sa
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 64
+  test "SHA2512" do
+    c = Codes.sha2512().string
+    assert c == "0G"
 
-  #   %{self_addressing: sa} = by_string_code(c)
-  #   assert sa
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "SHA2512"
 
-  # test "Blake2b512" do
-  #   c = blake2b512().string
-  #   assert c == "0F"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 64
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Blake2b512"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 88
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 64
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 64
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 88
+    %{self_addressing: sa} = Codes.by_string_code(c)
+    assert sa
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 64
+  test "Ed25519Attached" do
+    c = Codes.ed25519_attached().string
+    assert c == "AX"
 
-  #   %{self_addressing: sa} = by_string_code(c)
-  #   assert sa
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "Ed25519Attached"
 
-  # test "SHA2512" do
-  #   c = sha2512().string
-  #   assert c == "0G"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 64
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "SHA2512"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 88
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 64
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 64
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 88
+    %{attached_signature: as} = Codes.by_string_code(c)
+    assert as
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 64
+  test "EcDSAAttached" do
+    c = Codes.ecdsa_attached().string
+    assert c == "BX"
 
-  #   %{self_addressing: sa} = by_string_code(c)
-  #   assert sa
-  # end
+    %{name: n} = Codes.by_string_code(c)
+    assert n == "EcDSAAttached"
 
-  # test "Ed25519Attached" do
-  #   c = ed25519_attached().string
-  #   assert c == "AX"
+    %{data_length: dl} = Codes.by_string_code(c)
+    assert dl == 64
 
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "Ed25519Attached"
+    %{prefix_base_64_length: pbl} = Codes.by_string_code(c)
+    assert pbl == 88
 
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 64
+    %{prefix_data_length: pdl} = Codes.by_string_code(c)
+    assert pdl == 64
 
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 88
+    %{attached_signature: as} = Codes.by_string_code(c)
+    assert as
+  end
 
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 64
-
-  #   %{attached_signature: as} = by_string_code(c)
-  #   assert as
-  # end
-
-  # test "EcDSAAttached" do
-  #   c = ecdsa_attached().string
-  #   assert c == "BX"
-
-  #   %{name: n} = by_string_code(c)
-  #   assert n == "EcDSAAttached"
-
-  #   %{data_length: dl} = by_string_code(c)
-  #   assert dl == 64
-
-  #   %{prefix_base_64_length: pbl} = by_string_code(c)
-  #   assert pbl == 88
-
-  #   %{prefix_data_length: pdl} = by_string_code(c)
-  #   assert pdl == 64
-
-  #   %{attached_signature: as} = by_string_code(c)
-  #   assert as
-  # end
-
-  # test "default" do
-  #   o = default(blake2s256())
-  #   assert o == "################################"
-  # end
-
-  # test "keys" do
-  #   d =:enacl.sign_keypair()
-  #   |> Map.get(:public)
-  #   |> Blake3.hash()
-  #   |> Fast64.encode64()
-  #   |> String.trim("=")
-
-  #   IO.inspect("D" <> d)
-  # end
-
-  # test "as prefix" do
-
-  # end
+  test "default" do
+    o = Code.default(Codes.blake2s256())
+    assert o == "################################"
+  end
 end
