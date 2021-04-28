@@ -1,4 +1,6 @@
 defmodule Keriex.Db do
+  @moduledoc false
+
   use GenServer
 
   # Client interface

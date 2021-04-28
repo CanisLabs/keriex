@@ -1,4 +1,6 @@
 defmodule Keriex.Demo.Bob do
+  @moduledoc false
+
   @local "127.0.0.1"
 
   def start_link do

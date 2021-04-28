@@ -1,7 +1,5 @@
 defmodule Keriex.Parser do
-  @moduledoc """
-
-  """
+  @moduledoc false
   @name :parser
 
   use GenServer

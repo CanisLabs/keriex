@@ -1,7 +1,5 @@
 defmodule Keriex.KeyManager do
-  @moduledoc """
-
-  """
+  @moduledoc false
   @name :key_manager
 
   use GenServer

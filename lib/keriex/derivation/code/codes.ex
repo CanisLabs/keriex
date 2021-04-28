@@ -1,4 +1,6 @@
 defmodule Keriex.Derivation.Codes do
+  @moduledoc false
+
   alias Keriex.Derivation.Code
 
   @ed25519_seed %Code{

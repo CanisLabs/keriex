@@ -1,4 +1,6 @@
 defmodule Keriex.Derivation do
+  @moduledoc false
+
   defstruct code: "",
             raw: nil
 

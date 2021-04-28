@@ -3,11 +3,14 @@ defmodule Keriex.Version do
     The version string or version identifies (among other things) a given set of protocol specifica- tions.
     Versioning enables interoperable extensibility of the protocol. Each version indicates a well defined feature set.
     The version string includes a version code with a major and minor ver- sion number.
+
     Small backward compatible changes in the protocol increment the minor version number whereas backward breaking
     changes increment the major version number. Each event includes the version string.
+
     The version string also includes the serialization coding (such as JSON, CBOR, MessagePack, etc) used to
     encode the associated event as well as the size of the serialized event.
     This allows a parser to determine how to parse the message and extract it from attached signatures.
+
     The version string also ends in a terminal delimiting character. This allows for future detectable changes in the
     version string format including length.
 

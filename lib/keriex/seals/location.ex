@@ -1,6 +1,5 @@
 defmodule Keriex.Seals.Location do
   @moduledoc """
-
   A location seal includes the prefix, sequence number, ilk and prior digest from an event.
   These four values together uniquely identify the location of an event in a key event log.
   A location event is useful when two seals in two different events are cross-anchoring each other.

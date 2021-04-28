@@ -1,4 +1,6 @@
 defmodule Keriex.Demo.Eve do
+  @moduledoc false
+
   use GenServer
 
   def start_link() do

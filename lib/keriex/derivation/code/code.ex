@@ -1,4 +1,6 @@
 defmodule Keriex.Derivation.Code do
+  @moduledoc false
+
   defstruct name: "",
             string: "",
             data_length: 0,

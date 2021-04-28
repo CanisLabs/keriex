@@ -1,8 +1,6 @@
 defmodule Core.MixProject do
   use Mix.Project
 
-  # @ignore_modules File.read!("./.coverignore") |> String.split("\n") |> Enum.map(&(String.to_atom(&1)))
-
   def project do
     [
       app: :keriex,
@@ -34,8 +32,6 @@ defmodule Core.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
-      {:rustler, "~> 0.22-rc", override: true},
-      {:base64, "~> 0.1.0-rc"},
       {:blake3, "~> 0.4.1"},
       {:redix, ">= 0.0.0"},
       {:castore, ">= 0.0.0"},
@@ -47,8 +43,6 @@ defmodule Core.MixProject do
 
   defp aliases do
     [
-      # current aliases...
-
       quality: ["format", "credo --strict", "sobelow --verbose", "dialyzer", "test"],
       "quality.ci": [
         "test",
