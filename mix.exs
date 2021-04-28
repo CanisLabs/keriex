@@ -10,7 +10,10 @@ defmodule Core.MixProject do
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      test_coverage: [tool: ExCoveralls],
+      test_coverage: [
+        tool: ExCoveralls,
+        ignore_modules: []
+      ]
     ]
   end
 
@@ -30,7 +33,7 @@ defmodule Core.MixProject do
       {:blake3, "~> 0.4.1"},
       {:redix, ">= 0.0.0"},
       {:castore, ">= 0.0.0"},
-      {:excoveralls, "~> 0.10", only: :test},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 end
