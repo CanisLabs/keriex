@@ -22,8 +22,9 @@ defmodule Core.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
+      {:rustler, "~> 0.22-rc", override: true},
+      {:base64, "~> 0.1.0-rc"},
       {:blake3, "~> 0.4.1"},
-      {:fast64, "~> 0.1.3"},
       {:redix, ">= 0.0.0"},
       {:castore, ">= 0.0.0"}
     ]
