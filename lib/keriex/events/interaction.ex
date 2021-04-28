@@ -1,6 +1,5 @@
-defmodule Keriex.Event.Interaction do
+defmodule Keriex.Events.Interaction do
   @moduledoc """
-
   'ixn' - Interaction event
 
   An interaction event is a type of non-establishment key event that is interleaved into the

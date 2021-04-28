@@ -1,5 +1,5 @@
-defmodule Keriex.Event.DelegatedRotation do
-  alias Keriex.Event.LocationSeal
+defmodule Keriex.Events.Delegated.Rotation do
+  alias Keriex.Seals.Location
 
   @moduledoc """
   'drt' - Delegated rotation event
@@ -52,5 +52,5 @@ defmodule Keriex.Event.DelegatedRotation do
             # List of Anchors (seals)
             a: [],
             # Delegator Anchor Seal in Delegated Event
-            da: LocationSeal
+            da: Location
 end

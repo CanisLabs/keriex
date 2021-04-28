@@ -1,4 +1,4 @@
-defmodule Keriex.Event.LocationSeal do
+defmodule Keriex.Seals.Location do
   @moduledoc """
 
   A location seal includes the prefix, sequence number, ilk and prior digest from an event.

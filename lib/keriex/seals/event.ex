@@ -1,5 +1,6 @@
-defmodule Keriex.Event.Seal do
+defmodule Keriex.Seals.Event do
   @moduledoc """
+
   An event seal includes the identifier prefix, sequence number, and digest of an event in a key event log.
   The prefix, sequence number, and digest allow locating the event in an event log data- base.
   The digest also allows confirmation of the anchored event contents.

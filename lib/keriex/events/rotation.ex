@@ -1,4 +1,4 @@
-defmodule Keriex.Event.Rotation do
+defmodule Keriex.Events.Rotation do
   @moduledoc """
   'rot' - rotation event
 

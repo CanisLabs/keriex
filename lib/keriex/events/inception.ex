@@ -1,4 +1,4 @@
-defmodule Keriex.Event.Inception do
+defmodule Keriex.Events.Inception do
   @moduledoc """
   'icp' - Inception event.
 

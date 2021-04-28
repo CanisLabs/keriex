@@ -1,5 +1,5 @@
-defmodule Keriex.Event.DelegatedInception do
-  alias Keriex.Event.LocationSeal
+defmodule Keriex.Events.Delegated.Inception do
+  alias Keriex.Seals.Location
 
   @moduledoc """
   'dip' - Delegated inception event.
@@ -46,5 +46,5 @@ defmodule Keriex.Event.DelegatedInception do
             # List of Configuration Traits/Modes
             c: [],
             # Delegator Anchor Seal in Delegated Event
-            da: LocationSeal
+            da: Location
 end
