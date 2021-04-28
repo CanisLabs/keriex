@@ -27,9 +27,13 @@ cover/
 # Temporary files for e.g. tests
 /tmp
 
-#intellij
+# Intellij
 .idea
 *.iml
 
-#mac
+# Mac
 .DS_Store
+
+# Dialyxir
+/priv/plts/*.plt
+/priv/plts/*.plt.hash

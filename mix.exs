@@ -13,6 +13,12 @@ defmodule Core.MixProject do
       test_coverage: [
         tool: ExCoveralls,
         ignore_modules: []
+      ],
+      elixirc_options: [warnings_as_errors: true],
+      aliases: aliases(),
+      dialyzer: [
+        plt_file: {:no_warn, "priv/plts/dialyzer.plt"},
+        ignore_warnings: ".dialyzer_ignore.exs"
       ]
     ]
   end
@@ -33,7 +39,24 @@ defmodule Core.MixProject do
       {:blake3, "~> 0.4.1"},
       {:redix, ">= 0.0.0"},
       {:castore, ">= 0.0.0"},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
+    ]
+  end
+
+  defp aliases do
+    [
+      # current aliases...
+
+      quality: ["format", "credo --strict", "sobelow --verbose", "dialyzer", "test"],
+      "quality.ci": [
+        "test",
+        "format --check-formatted",
+        "credo --strict",
+        "sobelow --exit",
+        "dialyzer --halt-exit-status"
+      ]
     ]
   end
 end
