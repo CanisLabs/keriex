@@ -11,6 +11,7 @@
   "nimble_parsec": {:hex, :nimble_parsec, "1.1.0", "3a6fca1550363552e54c216debb6a9e95bd8d32348938e13de5eda962c0d7f89", [:mix], [], "hexpm", "08eb32d66b706e913ff748f11694b17981c0b04a33ef470e33e11b3d3ac8f54b"},
   "redix": {:hex, :redix, "1.0.0", "4f310341744ffceab3031394450a4e603d4d1001a697c3f18ae57ae776cbd3fb", [:mix], [{:castore, "~> 0.1.0", [hex: :castore, repo: "hexpm", optional: true]}, {:telemetry, "~> 0.4.0", [hex: :telemetry, repo: "hexpm", optional: false]}], "hexpm", "8c8d9b33b5491737adcd5bb9e0f43b85212a384ac0042f64c156113518266ecb"},
   "rustler": {:hex, :rustler, "0.21.1", "5299980be32da997c54382e945bacaa015ed97a60745e1e639beaf6a7b278c65", [:mix], [{:toml, "~> 0.5.2", [hex: :toml, repo: "hexpm", optional: false]}], "hexpm", "6ee1651e10645b2b2f3bb70502bf180341aa058709177e9bc28c105934094bc6"},
+  "sorted_set_nif": {:hex, :sorted_set_nif, "1.0.0", "fd197f27a804ca0e0c3d7b37952585675d3661777e6f755d89f7ba14583defb7", [:mix], [{:rustler, "~> 0.18", [hex: :rustler, repo: "hexpm", optional: false]}], "hexpm", "d3cf91a10da7531614d25066ee8e7e3c07106c79750b80d5e52f30b28d773522"},
   "telemetry": {:hex, :telemetry, "0.4.2", "2808c992455e08d6177322f14d3bdb6b625fbcfd233a73505870d8738a2f4599", [:rebar3], [], "hexpm", "2d1419bd9dda6a206d7b5852179511722e2b18812310d304620c7bd92a13fcef"},
   "toml": {:hex, :toml, "0.5.2", "e471388a8726d1ce51a6b32f864b8228a1eb8edc907a0edf2bb50eab9321b526", [:mix], [], "hexpm", "f1e3dabef71fb510d015fad18c0e05e7c57281001141504c6b69d94e99750a07"},
 }
