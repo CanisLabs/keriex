@@ -1,13 +1,16 @@
 defmodule Core.MixProject do
   use Mix.Project
 
+  # @ignore_modules File.read!("./.coverignore") |> String.split("\n") |> Enum.map(&(String.to_atom(&1)))
+
   def project do
     [
       app: :keriex,
       version: "0.1.0",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
     ]
   end
 
@@ -26,7 +29,8 @@ defmodule Core.MixProject do
       {:base64, "~> 0.1.0-rc"},
       {:blake3, "~> 0.4.1"},
       {:redix, ">= 0.0.0"},
-      {:castore, ">= 0.0.0"}
+      {:castore, ">= 0.0.0"},
+      {:excoveralls, "~> 0.10", only: :test},
     ]
   end
 end
