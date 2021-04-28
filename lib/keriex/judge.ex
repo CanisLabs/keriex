@@ -11,7 +11,7 @@ defmodule Keriex.Judge do
 
   A judge may be part of the trust basis of a validator and may also be under the control of a validator.
   A judge may be a second party involved in a transaction with a first party controller or a judge may be a trusted third party
-  in a multi-party transaction that includes a controller and oth- er validator parties.
+  in a multi-party transaction that includes a controller and other validator parties.
 
   A given entity may act in multiple roles such as both witness and juror or both juror and judge.
   A validator might perform its function by acting as all of a watcher, juror, and judge or by trusting other witnesses, watchers,

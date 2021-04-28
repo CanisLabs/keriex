@@ -8,7 +8,7 @@ defmodule Keriex.Verifier do
     nontransferable at inception this control establishment merely requires a copy of the inception event for the identifier.
 
     For identifiers that are declared transferable at inception this control establishment requires a complete copy
-    of the sequence of key operation events (inception and all rota- tions) for the identifier up to the time at which
+    of the sequence of key operation events (inception and all rotations) for the identifier up to the time at which
     the statement was issued.
   """
 end

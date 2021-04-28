@@ -7,7 +7,7 @@ defmodule Keriex.Events.Inception do
   well as other inception or configuration data for supporting infrastructure.
 
   There may be one and only one inception event operation performed on an identifier.
-  An inception event is necessary to control establish- ment.
+  An inception event is necessary to control establishment.
   An inception event configuration also declares or commits to the ensuing (next) set of authoritative keys
   as part of the pre-rotation scheme.
 

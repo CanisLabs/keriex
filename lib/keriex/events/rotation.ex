@@ -7,7 +7,7 @@ defmodule Keriex.Events.Rotation do
   To clarify, rotation essentially transfers root control authority from one set of keys to a new set of keys.
   A rotation event is therefore an establishment event. A rotation operation can be viewed as a combination of a
   revocation followed by replacement of keys. Each rotation event declares or commits to the next (ensuing)
-  set of authoritative keys as part of the pre-rotation scheme (defined later).
+  set of authoritative keys as part of the pre-rotation scheme.
 
   When that next set of keys is null then the identifier becomes non-transferable. No more events for that
   identifier are allowed.
