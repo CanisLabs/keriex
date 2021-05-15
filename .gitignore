@@ -22,6 +22,18 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 keriex-*.tar
 
+cover/
 
 # Temporary files for e.g. tests
 /tmp
+
+# Intellij
+.idea
+*.iml
+
+# Mac
+.DS_Store
+
+# Dialyxir
+/priv/plts/*.plt
+/priv/plts/*.plt.hash
